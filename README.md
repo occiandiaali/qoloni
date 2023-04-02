@@ -1,6 +1,8 @@
 # qoloni
 
-A social network
+A social network  
+![qolony-landing](https://user-images.githubusercontent.com/40769994/229372211-91231246-168d-4256-b92b-423f007af097.png)
+
 
 ## Getting Started
 
