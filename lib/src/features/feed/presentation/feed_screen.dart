@@ -11,6 +11,7 @@ class FeedScreen extends StatefulWidget {
 
 class _FeedScreenState extends State<FeedScreen> {
   List<String> topics = ["Books", "Career", "Travel", "Movies", "Music", "Food"];
+
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -57,9 +58,11 @@ class _FeedScreenState extends State<FeedScreen> {
                   ),
                 ),
           SizedBox(
-            height: MediaQuery.of(context).size.height,
+          //  height: MediaQuery.of(context).size.height,
             child: SingleChildScrollView(
-
+              primary: false,
+            // scrollDirection: Axis.values.last,
+              physics: const NeverScrollableScrollPhysics(),
               child: Column(
                     children: topics.map((title) {
                       return PostCard(
