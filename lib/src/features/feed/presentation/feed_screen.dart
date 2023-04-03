@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:qoloni/src/shared_widgets/box.dart';
+import 'package:qoloni/src/utils/functions/helper_functions.dart';
 import 'feed_card.dart';
 
 class FeedScreen extends StatefulWidget {
@@ -11,59 +12,7 @@ class FeedScreen extends StatefulWidget {
 
 class _FeedScreenState extends State<FeedScreen> {
   List<String> topics = ["Books", "Career", "Travel", "Movies", "Music", "Food"];
-  bool enableTextField = true;
-  void _showModalSheet(BuildContext ctx) {
-    showModalBottomSheet(
-      isScrollControlled: true,
-      elevation: 5,
-      context: ctx,
-      builder: (ctx) => Padding(
-        padding: EdgeInsets.only(
-          top: 15,
-          left: 15,
-          right: 15,
-          bottom: MediaQuery.of(ctx).viewInsets.bottom + 15
-        ),
-        child: Column(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            const TextField(
-              keyboardType: TextInputType.name,
-              decoration: InputDecoration(labelText: 'Name'),
-            ),
-            const TextField(
-              keyboardType: TextInputType.number,
-              decoration: InputDecoration(labelText: 'Age'),
-            ),
-            const SizedBox(height: 15,),
-            ElevatedButton(onPressed: () {}, child: const Text('Submit'),)
-          ],
-        ),
-      )
-    );
-  }
 
-  void showBottomSheet(ctx) {
-    showModalBottomSheet(context: ctx, builder: (ctx) {
-    return Wrap(
-      children: const [
-        ListTile(
-          leading: Icon(Icons.share),
-          title: Text('Share'),
-        ),
-        ListTile(
-          leading: Icon(Icons.copy),
-          title: Text('Copy'),
-        ),
-        ListTile(
-          leading: Icon(Icons.edit),
-          title: Text('Edit'),
-        ),
-      ],
-    );
-    });
-  }
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -79,7 +28,7 @@ class _FeedScreenState extends State<FeedScreen> {
                       margin: const EdgeInsets.only(top: 30, bottom: 20),
                       width: 260,
                       child: TextField(
-                        onTap: () => _showModalSheet(context),
+                        onTap: () => HelperFunctions.feedModalSheet(context),
                         readOnly: true,
                         textAlign: TextAlign.center,
                         decoration: InputDecoration(
