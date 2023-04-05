@@ -1,5 +1,6 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.occiandiaali.qoloni">
+    <uses-permission android:name="android.permission.INTERNET" />
    <application
         android:label="qoloni"
         android:name="${applicationName}"

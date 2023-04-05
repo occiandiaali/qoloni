@@ -1,6 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:qoloni/src/features/news/data/repos/repository.dart';
+//import 'package:qoloni/src/features/news/presentation/bloc/bloc.dart';
+//import 'package:qoloni/src/features/news/presentation/ui/news_articles.dart';
 import 'package:qoloni/src/features/feed/presentation/feed_screen.dart';
+import 'package:qoloni/src/features/news/presentation/ui/news_ui.dart';
 
 void main() {
   // Set status bar colour to white in all screens
@@ -25,15 +30,16 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
       //  primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: const MyHomePage(),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
+  const MyHomePage({super.key});
+ // const MyHomePage({super.key, required this.title});
 
-  final String title;
+ // final String title;
 
   @override
   State<MyHomePage> createState() => _MyHomePageState();
@@ -72,20 +78,35 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             title: const Text('qolony', style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold, color: Colors.deepOrangeAccent),),
-            actions: const [
-              Icon(Icons.mic, color: Colors.blueGrey),
-              SizedBox(width: 6),
-              Icon(Icons.search_rounded, color: Colors.blueGrey),
-              SizedBox(width: 15),
+            actions: [
+              if (selectedIndex == 0) const Icon(Icons.mic, color: Colors.blueGrey),
+              const SizedBox(width: 6),
+              if (selectedIndex == 1) const Icon(Icons.add_a_photo_outlined, color: Colors.blueGrey),
+              const SizedBox(width: 6),
+              if (selectedIndex == 2) const Icon(Icons.create_outlined, color: Colors.blueGrey),
+              const SizedBox(width: 6),
+              if (selectedIndex == 3) const Icon(Icons.search_rounded, color: Colors.blueGrey),
+              const SizedBox(width: 6),
+              if (selectedIndex == 3) const Icon(Icons.more_vert, color: Colors.blueGrey),
+              const SizedBox(width: 15),
             ],
           ),
-          body: const TabBarView(
+          body: TabBarView(
             children: [
-              FeedScreen(),
-              Icon(Icons.video_camera_back, size: 150),
-              Icon(Icons.shopping_cart, size: 150),
-              Icon(Icons.newspaper, size: 150),
-              Icon(Icons.person, size: 150),
+              const FeedScreen(),
+              const Icon(Icons.video_camera_back, size: 150),
+              const Icon(Icons.shopping_cart, size: 150),
+              //NewsUI(),
+              //Icon(Icons.newspaper, size: 150),
+              RepositoryProvider(
+                create: (context) => NewsRepo(),
+                child: const NewsUI(),
+              ),
+              // BlocProvider(
+              //   create: (context) => NewsBloc(),
+              //   child: const NewsArticles(),
+              // ),
+              const Icon(Icons.person, size: 150),
             ],
           ),
         ));
