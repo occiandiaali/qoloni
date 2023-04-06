@@ -2,7 +2,7 @@
 
 A social network    
 ![qolony-home-shot](https://user-images.githubusercontent.com/40769994/229494968-ebbff88d-1b35-4240-b833-d2797526710b.png)
-![qoloni-feedcard](https://user-images.githubusercontent.com/40769994/229526130-1e525884-03bd-4689-bb60-d78217ac90a5.png)
+![qoloni-feedcard](https://user-images.githubusercontent.com/40769994/229526130-1e525884-03bd-4689-bb60-d78217ac90a5.png)  
 ![feed-create-post](https://user-images.githubusercontent.com/40769994/229586828-e3e2dcbf-f2c1-4d8d-b7c6-0b5abc6e307d.png)
 ![qoloni-news](https://user-images.githubusercontent.com/40769994/230441939-d677094c-2418-4f2d-8b20-7aa0fac24ec5.png)
 
